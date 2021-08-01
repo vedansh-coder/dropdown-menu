@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #3498db;
+        }
+        .navbar{
+            display: flex;
+            height: 50px;
+            width: 100vw;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+        }
+        .nav-brand{
+            width: 40%;
+            display: flex;
+            align-items: center;
+        }
+        .navlist{
+            width: 60%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50px;
+        }
+        .navlist > li{
+            padding: 10px;
+        }
+        nav li{
+            list-style: none;
+        }
+        .web-development-list{
+            display: none;
+            position: absolute;
+            padding-top: 20px;
+            transition: all 0.5s ease-in;
+        }
+        .dropdown:hover > .web-development-list{
+            display: flex;
+            flex-direction: column;
+            height: 50px;
+        }
+        .dropdown  li{
+            background: rgba(0, 0, 0, 0.5);
+            width: 100px;
+            padding: 10px;
+            text-align: center;
+        }
+        .frontend-list{
+            display: none;
+            position: absolute;
+            margin-left: 90px;
+            margin-top: -10px;
+            transition: all 0.5s ease-in;
+        }
+        .backend-list{
+            display: none;
+            position: absolute;
+            margin-left: 90px;
+            transition: all 0.5s ease-in;
+        }
+        .flex{
+            display: flex;
+        }
+        .frontend:hover > .frontend-list{
+            display: block;
+        }
+        .backend:hover > .backend-list{
+            display: block;
+        }
+        .hamburger{
+            width: 50px;
+            display: none;
+        }
+        .line{
+            margin: 3px;
+            width: 50px;
+            height: 7px;
+            background: white;
+        }
+        @media only screen and (max-width: 700px){
+            .nav-brand{
+                width: 100%;
+            }
+            .navlist{
+                flex-direction: column;
+                padding-top: 20px;
+                transition: all 1s ease-in-out;
+            }
+            .hamburger{
+                display: block !important;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            .navbar{
+                flex-direction: column;
+            }
+            .web-development-list{
+            display: none;
+            position: relative;
+            margin-bottom: 30px;
+            }
+            .hide-navlist{
+                display: none;
+            }
+            .height-navbar{
+                height: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1 class="nav-brand">Vedansh Tech Tutorials</h1>
+        <ul class="navlist hide-navlist">
+            <li>Home</li>
+            <li>Service</li>
+            <li class="dropdown">Web Development
+                <ul class="web-development-list">
+                    <li class="flex frontend">Frontend
+                        <ul class="frontend-list">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Javascript</li>
+                            <li>Bootstrap</li>
+                            <li>jQuery</li>
+                        </ul>
+                    </li>
+                    <li class="flex backend">Backend
+                        <ul class="backend-list">
+                            <li>PHP</li>
+                            <li>Nodejs</li>
+                            <li>Django</li>
+                            <li>Flask</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>About</li>
+        </ul>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+</body>
+<script>
+    document.querySelector('.hamburger').addEventListener('click',()=>{
+        document.querySelector('.navlist').classList.toggle('hide-navlist');
+        document.querySelector('.navbar').classList.toggle('height-navbar');
+    })
+</script>
+</html>
